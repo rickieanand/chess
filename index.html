@@ -2,11 +2,36 @@
 <head>
 	<title>Chess Board</title>
 	<style type="text/css">
-	.white{width: 50px;height: 50px;background: #fff}
-	.black{width: 50px;height: 50px;background: #000}
+*{margin: 0; padding: 0;}
+	#board{width: 400px; height: 400px; overflow: hidden; border: 1px solid #000;}
+	.white{width: 50px;height: 50px;background: #fff; float: left;}
+	.black{width: 50px;height: 50px;background: #000; float: left;}
+
 	</style>
 </head>
 <body>
+<div id="board">
+	<ul id="list">
+	</ul>
+</div>
+<script type="text/javascript">	
+window.onload = function(){
+	board();
+}
+		/*for keyword center alignment*/	
+function board(){
+	var ul = document.getElementById("list");
+  		for(var i = 0; i<64 ; i++){
+			var li = document.createElement("li");
+			ul.appendChild(li);
+		 	if(parseInt((i / 8) + i) % 2 == 0){
+		 		li.setAttribute("class", "white");
+		 	} else{
+		 		li.setAttribute("class", "black");
+		 	}   
+		}
+}
+</script>
 
 </body>
 </html>
